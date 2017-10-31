@@ -1,0 +1,29 @@
+<div id="search" class="container py-3 my-3" style="display: none;">
+  <div class="row">
+    <div class="col">
+      <span class="h1 d-block">
+        <span id="search-h1-intro">Your search results for </span>
+        <span id="search-term" class="text-info"></span>
+        <span id="search-page-count" class="h6 text-uppercase" style="display: none;">
+          &ndash; Page <span class="search-current-page"></span> of <span class="search-total-pages"></span>
+        </span>
+      </span>
+      <div id="search-spinner" class="text-center" style="display: none;">
+        <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw text-primary"></i>
+        <span class="sr-only">Loading...</span>
+      </div>
+      <div id="search-results"></div>
+    </div>
+  </div>
+  <div id="pagination-row" class="row" style="display: none;">
+    <div class="col text-center mb-5">
+      <nav aria-label="Pages" role="navigation">
+        <button id="search-previous-btn" aria-label="Previous" class="search-pagination btn btn-info btn-lg rounded-ends m-3 px-5 hidden-xs-up" data-page="">Previous</button>
+        <br class="hidden-sm-up">
+        Page <span class="search-current-page"></span> of <span class="search-total-pages"></span>
+        <br class="hidden-sm-up">
+        <button id="search-next-btn" class="search-pagination btn btn-info btn-lg rounded-ends m-3 px-5 hidden-xs-up" data-page="">Next</button>
+      </nav>
+    </div>
+  </div>
+</div>

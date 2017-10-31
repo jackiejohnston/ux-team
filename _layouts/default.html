@@ -1,0 +1,34 @@
+---
+layout: compress
+---
+<!DOCTYPE html>
+<html lang="en" class="wf-loading">
+  <head>
+    {% if jekyll.environment == "production" %}
+      {% include anti-click-jack.html %}
+    {% endif %}
+    {% include head.html %}
+  </head>
+  <body class="drawer drawer--left">
+    <header id="header" role="navigation">
+      {% include header.html %}
+    </header>
+    <main role="main" id="main" tabindex="-1">
+
+      {% include search-results.html %}
+
+      <div id="content">{{content}}</div>
+
+    </main>
+    <footer id="footer" role="navigation">
+      {% include footer.html %}
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearchLite.min.js"></script>
+    <script src="{{ '/assets/javascripts/usa.min.js' | relative_url }}"></script>
+    {% for script in page.scripts %}
+      <script src="{{ script | prepend: '/assets/javascripts/' | relative_url }}"></script>
+    {% endfor %}
+  </body>
+</html>

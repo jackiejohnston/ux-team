@@ -1,0 +1,10 @@
+{
+  "name": "pennymacusa-jekyll",
+  "version": "1.0.0",
+  "main": "Gruntfile.js",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-accessibility": "^5.0.0",
+    "grunt-uncss": "^0.6.1"
+  }
+}

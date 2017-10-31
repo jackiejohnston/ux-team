@@ -1,0 +1,101 @@
+@font-face {
+  font-family: 'gilroybold';
+  src: url('https://pennymac-cms.github.io/pennymacusa-jekyll/assets/fonts/gilroybold/gilroy-bold.woff2') format('woff2'),
+       url('https://pennymac-cms.github.io/pennymacusa-jekyll/assets/fonts/gilroybold/gilroy-bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  // margin-top: 57px !important;
+  position: relative;
+}
+
+/* Offset anchor tag links */
+:target:before {
+  content: "";
+  display: block;
+  height: 67px; /* fixed header height*/
+  margin: -67px 0 0; /* negative fixed header height */
+}
+
+.anchorjs-link {
+  transition: all .25s linear;
+}
+*:hover > .anchorjs-link {
+  margin-left: -1.125em !important;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+}
+
+.sidecar-menu {
+  position: fixed;
+  right: 0;
+  top: 75px;
+}
+
+.sidecar-menu li {
+  padding-left: 15px;
+  line-height: 1.75;
+}
+
+.sidecar-menu a {
+  padding: 0 !important;
+}
+
+.sidecar-menu a:hover {
+  background-color: white !important;
+}
+
+.sidecar-menu li:hover,
+.sidecar-menu li:focus {
+  border-left: 1px solid #1565C0;
+  padding-left: 14px
+}
+
+.sidecar-menu li:active, .sidecar-menu li.active {
+  border-left: 2px solid #1565C0;
+  padding-left: 13px
+}
+
+.sidecar-menu .nav .nav {
+  display: none;
+}
+
+.sidecar-menu .nav>.active>ul {
+  display: block;
+}
+
+.sidecar-menu .nav .nav>li>a {
+  font-size: 12px;
+  padding-left: 30px;
+}
+
+.anchorjs-link:hover {
+  text-decoration: none;
+}
+
+.color {
+  padding: 15px;
+}
+
+.color-group {
+  margin-bottom: 45px;
+}
+
+.color-palette .color-group li.main-color, .color-palette .color-group:last-child li.main-color {
+    border-bottom: 4px solid white;
+}
+
+.color-palette .color-group li.divide, .color-palette .color-group:last-child li.divide {
+    border-top: 4px solid white;
+}
+
+.color-palette .color-group li.color .hex, .color-palette .color-group:last-child li.color .hex {
+    float: right;
+    text-transform: uppercase;
+}

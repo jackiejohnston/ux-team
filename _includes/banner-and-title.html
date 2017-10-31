@@ -1,0 +1,18 @@
+<figure id="banner-image" class="m-0 p-0">
+  <img data-src="{{ include.image | relative_url }}" class="figure-img img-fluid hidden-xs-down m-0 p-0" alt="{{ include.image_alt_text }}" aria-hidden="true">
+  <img data-src="{{ include.image | replace: '/banners/', '/banners-mobile/' | relative_url }}" class="figure-img img-fluid hidden-sm-up m-0 px-1" alt="{{ include.image_alt_text }}" aria-hidden="true">
+  {% if include.image_caption %}<figcaption class="container figure-caption" aria-hidden="true">{{ include.image_caption }}</figcaption>{% endif %}
+</figure>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      {% if include.title contains '<br' and page.path contains "_companies" %}
+        <h1 class="box mt--8 display-4 text-primary"><span class="box-wrap"><span class="box-inner">{{ include.title }}</span></span></h1>
+      {% elsif include.title contains '<br' %}
+        <h1 class="box mt--6 display-4 text-primary"><span class="box-wrap"><span class="box-inner">{{ include.title }}</span></span></h1>
+      {% else %}
+        <h1 class="box mt--5 display-4 text-primary"><span class="box-wrap"><span class="box-inner text-capitalize">{{ include.title | replace: " and ", " & " }}</span></span></h1>
+      {% endif %}
+    </div>
+  </div>
+</div>

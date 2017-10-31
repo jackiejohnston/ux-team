@@ -1,0 +1,54 @@
+{% for post in include.post_collection.posts limit:include.cap %}
+
+  {% if forloop.index0 == 0 or forloop.index0 == 3 or forloop.index0 == 6 %}
+    <div class="row d-flex clearfix justify-content-between">
+  {% endif %}
+
+  {% if forloop.index0 == 1 or forloop.index0 == 6 %}
+    <div class="d-inline-flex flex-column">
+  {% endif %}
+
+  {% if forloop.index0 == 0 or forloop.index0 == 8 %}
+    <div class="big-card d-inline-block mb-5">
+  {% else %}
+    <div class="small-card d-inline-block mb-5">
+  {% endif %}
+
+  <div class="card bg-pennymac-gray-lightest border-0 h-100">
+    {% if post.image %}
+      <a href="{{ post.url | relative_url }}">
+        <img class="card-img-top img-fluid" src="{{ post.image | replace: '/blog/', '/blog-mobile/' |  relative_url }}" height="{{ post.image_height }}" width="{{ post.image_width }}" alt="{{ post.image_alt_text }}" aria-hidden="true">
+      </a>
+    {% endif %}
+    <div class="card-block pb-0">
+      <p class="card-text small text-muted mb-2">
+         {{ post.date | date: "%m.%d.%y" }}
+      </p>
+      <div class="card-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></div>
+      <p class="card-text hidden-xs-up">
+        {{ post.teaser }}
+      </p>
+      <p class="mb-2">
+        <a href="{{ post.url | relative_url }}" title="{{ post.title }}">
+          Read more<span aria-hidden="true">&hellip;</span><span class="sr-only"> about {{ post.title }}</span>
+        </a>
+      </p>
+    </div>
+    <div class="card-footer pt-0 border-0">
+      <p class="card-text small text-muted mt-4">
+        {% for tag in post.tags %}
+          <a href="{{ tag | downcase | replace: ' ', '-' | prepend: '/blog/tag/' | relative_url }}" class="pr-3 py-1 d-inline-block"><span class="text-uppercase text-nowrap">{{ tag }}</span></a>
+        {% endfor %}
+      </p>
+    </div>
+  </div>
+
+  </div>
+
+  {% if forloop.index0 == 2 or forloop.index0 == 7 %}
+    </div>
+
+  {% endif %}
+
+  {% if forloop.index0 == 2 or forloop.index0 == 5 or forloop.index0 == 8 %}</div>{% endif %}
+{% endfor %}

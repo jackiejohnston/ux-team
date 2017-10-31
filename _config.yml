@@ -1,0 +1,118 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+title: PennyMac UX
+description: >
+  PennyMac is a leading national home loan lender and servicer. Enjoy great rates and a quick, painless process when you purchase or refinance your next home.
+
+baseurl: ""
+url: "https://jackiejohnston.github.io"
+lang: en
+encoding: UTF-8
+timezone: America/Los_Angeles
+bricks_version: 2.0.0
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-autoprefixer
+  - jekyll-sitemap
+  - jekyll-redirect-from
+  - amp-jekyll
+  - jekyll-paginate-v2
+  - algoliasearch-jekyll
+safe: false
+ampdir: amp
+
+sass:
+  style: compressed
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - spec
+  - Rakefile
+  - node_modules
+  - reports
+  - Gruntfile.js
+  - package.json
+
+# Set Jekyll's env to enable/disable Uglifier
+env: 'production'
+
+liquid:
+  error_mode: strict
+
+excerpt_separator: <!--more-->
+
+collections:
+  posts:
+    output: true
+    permalink: /blog/:slug
+  snippets:
+    output: false
+  bricks:
+    output: true
+    permalink: /bricks/:slug
+
+future: true
+
+# Pagination Settings
+pagination:
+  enabled: true
+  per_page: 9
+  permalink: '/page/:num/'
+  title: ':title <span class="h6 text-uppercase text-nowrap text-pennymac-blue">&ndash; Page :num</span>'
+  limit: 0
+  sort_field: 'date'
+  sort_reverse: true
+
+autopages:
+  enabled: true
+  tags:
+    layouts:
+    enabled: true
+  categories:
+    enabled: false
+  collections:
+    enabled: false
+
+
+tag_page_dir: /blog/tag
+tag_permalink_style: pretty
+
+algolia:
+  application_id: UFB1G93DTC
+  index_name: PENNYMACUSA
+  excluded_files:
+    - 404.html
+    - search.html
+    - status.html
+
+stitch:
+  dependencies:
+    - "assets/javascripts/tether.min.js"
+    - "assets/javascripts/bootstrap.min.js"
+    - "assets/javascripts/smartquotes.js"
+    - "assets/javascripts/iscroll-lite.js"
+    - "assets/javascripts/drawer.min.js"
+    - "assets/javascripts/algoliasearch.js"
+    - "assets/javascripts/custom.js"
+  output: 'assets/javascripts/usa.min.js'
+  fingerprint: false
+  cleanup: true
+  uglify: true
+  uglify_options: {}

@@ -1,0 +1,10 @@
+---
+tag: home
+section: Add CSS
+code-language: markup
+show-example: false
+show-code: true
+description: >
+  Add the following Bricks CSS to your <code>head</code> tag. This already incorporates <a href="http://necolas.github.io/normalize.css/" target="_blank" rel="nofollow">Normalize.css</a> and <a href="http://v4-alpha.getbootstrap.com/" target="_blank" rel="nofollow">Bootstrap v4.0.0-alpha.6</a> so you should not add them separately. Note: It is a good idea to download this file and link to it within your own app instead of linking directly for better performance since we are not hosting on a CDN. If you'd prefer you can <a href="https://github.com/pennymac/pennymacusa-jekyll/tree/master/_sass/bricks" target="_blank" rel="nofollow">download our SASS files</a> to use instead (you'll want the <a href="https://github.com/pennymac/pennymacusa-jekyll/blob/master/assets/stylesheets/2.0.0/bricks.min.scss" target="_blank" rel="nofollow">index file</a> in addition to the contents of the <a href="https://github.com/pennymac/pennymacusa-jekyll/tree/master/_sass/bricks" target="_blank" rel="nofollow">bricks directory</a>, though you may have to customize the paths depending on your file structure).
+---
+<link rel="stylesheet" href="{{ '/assets/stylesheets/' | append: site.bricks_version | append: '/bricks.min.css' | absolute_url }}">

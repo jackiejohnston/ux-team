@@ -1,0 +1,76 @@
+<div class="container pt-5">
+  <div class="row">
+    <div class="col">
+      <h1>{{ page.title }}</h1>
+      <p>Updated on: {{ page.last_ran }}</p>
+
+      <table class="table table-hover">
+        <thead class="thead-inverse">
+          <tr class="small">
+            <th>URL TESTED</th>
+            <th class="text-center">ERRORS</th>
+            <th class="text-center">VISIT</th>
+            <th class="text-center">WAVE</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for url in site.data.ada[include.report].report %}
+            {% assign page_index = forloop.index %}
+            <tr>
+              <td>
+                {% if url[1].counters.error == 0 %}
+                  <i class="fa fa-circle text-success mr-2" aria-hidden="true"></i>
+                  {{ url[0] }}
+                {% else %}
+                  <a data-toggle="collapse" data-parent="#accordion" data-target="#{{page_index}}" aria-expanded="false" aria-controls="{{page_index}}">
+                    <i class="fa fa-plus-circle text-danger mr-2" aria-hidden="true"></i>
+                    {{ url[0] }}
+                  </a>
+                {% endif %}
+              </td>
+              <td class="text-center">
+                {% if url[1].counters.error > 0 %}
+                  <span class="badge badge-pill badge-danger ml-2">{{ url[1].counters.error }}</span>
+                {% else %}
+                  <span class="badge badge-pill badge-success ml-2">0</span>
+                {% endif %}
+              </td>
+              <td class="text-center">
+                <a href="{{ url[0] }}" target="_blank" class="ml-2"><i class="fa fa-external-link" aria-hidden="true"></i><span class="sr-only">Visit this URL.</span></a>
+              </td>
+              <td class="text-center">
+                <a href="http://wave.webaim.org/report#/{{ url[0] }}" target="_blank" class="ml-2"><i class="fa fa-bug" aria-hidden="true"></i><span class="sr-only">Visit the WAVE report for this URL.</span></a>
+              </td>
+            </tr>
+            <tr id="{{page_index}}" class="collapsed collapse bg-pennymac-gray-lightest py-3 mt-3">
+              <td colspan="4" class="pt-3 pl-3 pr-5" style="word-wrap:break-word;min-width:970px;max-width:970px;">
+                <ol>
+                {% for message in url[1].messageLog %}
+                  <li>
+                    <strong>
+                      <span class="text-danger">{{ message.heading }} </span>
+                      {{ message.issue }}
+                    </strong><br>
+
+                    <span class="text-muted">{{ message.description }}</span><br>
+
+                    {% highlight markup %}
+                      <!-- Line: {{ message.position.lineNumber }} Col: {{ message.position.columnNumber }} -->
+                      {{ message.element.node | replace: '\ ', '' }}
+                    {% endhighlight %}
+                  </li>
+                {% endfor %}
+                </ol>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <p class="small text-muted">
+        These reports were created using <a href="https://github.com/yargalot/AccessSniff" target="_blank" rel="nofollow">AccessSniff</a>. You can read more about creating your own automated accessibility tests using AccessSniff <a href="https://pennymac.github.io/levelup/automated-accessibility-testing" target="_blank" rel="nofollow">here</a>.
+      </p>
+
+    </div>
+  </div>
+</div>

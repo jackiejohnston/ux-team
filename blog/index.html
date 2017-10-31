@@ -1,0 +1,77 @@
+---
+layout: default
+title: "Mortgage news, tips and tools"
+seo_title: "Mortgage news, tips and tools"
+breadcrumb_title: "Learning Center"
+description: >
+  PennyMac is your unbiased resource for mortgage news and advice to help you save money, time, and peace of mind during the mortgage process.
+slug: blog
+permalink: /blog
+pagination:
+  enabled: true
+redirect_to:
+redirect_from:
+scripts:
+  - "formValidation.js"
+  - "bootstrap4.js"
+  - "newsletter-signup-form-validation.js"
+---
+<figure id="banner-image" class="m-0 p-0">
+  <img data-src="{{ '/assets/images/banners/blog.jpg' | relative_url }}" class="figure-img img-fluid hidden-xs-down m-0 p-0" alt="PennyMac is the lender you can call home." aria-hidden="true">
+  <img data-src="{{ '/assets/images/banners-mobile/blog.jpg' | relative_url }}" class="figure-img img-fluid hidden-sm-up m-0 px-1" alt="The lender you can call home is PennyMac." aria-hidden="true">
+</figure>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-lg-6">
+      <h1 class="box mt--8 display-4 text-primary"><span class="box-wrap"><span class="box-inner">{{ page.title }}</span></span></h1>
+    </div>
+  </div>
+</div>
+{% include breadcrumbs.html %}
+
+<div class="container">
+  <div class="row px-5">
+    <div class="col-12 my-5">
+      <p class="lead">
+        The PennyMac Mortgage Blog is where you'll find unbiased, useful info to help save you money, time and peace of mind during the mortgage process. If you have a mortgage or are about to get one, we think you'll find info here you can't always get elsewhere.
+      </p>
+    </div>
+    <div class="col-sm-12 col-md-5 mb-5">
+      <div class="dropdown">
+        <button id="tag-filter-dropdown" class="btn btn-outline-info  btn-block dropdown-toggle p-3 text-left" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Filter Articles By Topic
+        </button>
+        <div id="tag-filter-dropdown-menu" class="dropdown-menu p-0 mt-2 btn-block" aria-labelledby="tag-filter-dropdown">
+          {{ site | tag_cloud }}
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6 offset-md-1 mb-5">
+      <form id="newsletter-signup-form" method="post" target="_top" action="https://api.pennymacusa.com/hubspot/uploads/form/v2/159685/8211eee3-3e76-4803-8e22-83132f4a990f">
+        <input type="hidden" name="external_blog_subscription_status" value="true">
+        <div class="input-group mb-2">
+          <input aria-label="email address" name="email" type="text" class="form-control bg-pennymac-gray-lightest border-0 rounded-ends p-3" placeholder="Subscribe to News">
+          <span class="input-group-btn">
+            <button type="submit" class="btn btn-secondary rounded-ends border-0 bg-pennymac-gray-lightest disabled" disabled="disabled">
+              <i class="fa fa-arrow-right" aria-hidden="true"></i>
+              <span class="sr-only">Subscribe</span>
+            </button>
+          </span>
+        </div>
+        <div id="form-messages" class="has-danger"></div>
+      </form>
+    </div>
+  </div>
+  <div id="blog-cards" class="row mt-3">
+    <div class="col px-5">
+      {% include posts-index.html post_collection=paginator cap=none %}
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col text-center mb-5">
+      {% include pagination-minimal.html %}
+    </div>
+  </div>
+</div>

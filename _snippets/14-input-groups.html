@@ -1,0 +1,52 @@
+---
+tag: components
+section: Input groups
+code-language: markup
+show-example: true
+show-code: true
+description: >
+  Place one add-on or button on either side of an input. You may also place one on both sides of an input. You can use <code>.border-left-0</code> or <code>.border-right-0</code> on the <code>input</code> in order to remove the line separating the add-on. And you can change the add-on"s background color to white to further hide the separation of the two elements with <code>.bg-pennymac-white</code>.
+---
+<div class="input-group">
+  <span class="input-group-addon rounded-ends">$</span>
+  <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+  <span class="input-group-addon rounded-ends">.00</span>
+</div>
+<br>
+<div class="input-group">
+  <input type="search" class="form-control rounded-ends" placeholder="Search for..." aria-label="Search for...">
+  <span class="input-group-btn">
+    <button type="button" class="btn btn-success rounded-ends">
+      <i class="fa fa-search" aria-label="Go!"></i>
+      <span class="sr-only">Go!</span>
+    </button>
+  </span>
+</div>
+<br>
+<div class="input-group">
+  <span class="input-group-addon rounded-ends bg-pennymac-white">
+    <i class="fa fa-phone" aria-hidden="true"></i>
+  </span>
+  <input type="text" class="form-control rounded-ends border-left-0" title="phone number">
+</div>
+<br>
+<div class="input-group">
+  <div class="input-group-addon bg-pennymac-gray-lightest rounded-ends border-0 py-3 pl-4 mr--1">
+    <i class="fa fa-search" aria-hidden="true"></i>
+  </div>
+  <input aria-label="Search" id="search-term-desktop" name="q" placeholder="Search PennyMac" type="text" class="form-control border-0 bg-pennymac-gray-lightest py-3 mr--1">
+  <div class="input-group-addon bg-pennymac-gray-lightest rounded-ends border-0 py-3 pr-4">
+    <i role="button" class="fa fa-times-circle invisible" aria-label="Delete search text."></i>
+  </div>
+</div>
+<br>
+<div class="input-group">
+  <input aria-label="email address" name="email" type="text" class="form-control bg-pennymac-gray-lightest border-0 rounded-ends p-3" placeholder="Subscribe to News">
+  <span class="input-group-btn">
+    <button type="submit" class="btn btn-secondary rounded-ends border-0 bg-pennymac-gray-lightest disabled" disabled="disabled">
+      <i class="fa fa-arrow-right" aria-hidden="true"></i>
+      <span class="sr-only">Subscribe</span>
+    </button>
+  </span>
+</div>
+<br>

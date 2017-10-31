@@ -1,0 +1,9 @@
+.sass-cache
+.jekyll-metadata
+.DS_Store
+.ruby-gemset
+.ruby-version
+node_modules/
+.env
+assets/javascripts/2.0.0/bricks.min.js
+assets/javascripts/usa.min.js

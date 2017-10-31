@@ -1,0 +1,17 @@
+---
+tag: home
+section: Add Gilroy Font
+code-language: css
+show-code: true
+show-example: false
+description: >
+  Our <code>h1</code> to <code>h6</code> headers are in Gilroy Bold. To use them you'll need to <a href="https://github.com/pennymac/pennymacusa-jekyll/tree/master/assets/fonts/gilroybold" target="_blank">download the fonts files</a>, and add the following snippet to your CSS adjusting the urls as needed.
+---
+
+@font-face {
+  font-family: 'gilroybold';
+  src: url('/assets/fonts/gilroybold/gilroy-bold.woff2') format('woff2'),
+       url('/assets/fonts/gilroybold/gilroy-bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}

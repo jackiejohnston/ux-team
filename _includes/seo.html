@@ -1,0 +1,33 @@
+{% capture canonical_url %}{% if page.path contains "_posts" %}{{ page.id | absolute_url }}{% elsif page.path contains "amp/blog" %}{{ page.canonical_url | absolute_url }}{% elsif page.path contains "blog/tag" %}{{ page.path | downcase | remove: "index.html" | absolute_url }}{% else %}{{ page.permalink | absolute_url | downcase }}{% endif %}{% endcapture %}
+
+{% capture page_seo_title %}{% if page.slug == "home" %}{{ page.seo_title | escape }}{% elsif page.autopages.display_name %}{% capture page_type %} Articles - Page {{ paginator.page }}{% endcapture%}{{ page.autopages.display_name | capitalize | escape | append: page_type | append: " | PennyMac UX" }}{% elsif paginator.page %}{{ page.seo_title | escape | append: " - Page " | append: paginator.page | append: " | PennyMac UX" }}{% else %}{{ page.seo_title | escape | append: " | PennyMac UX" }}{% endif %}{% endcapture %}
+
+{% capture page_meta_description %}{{ page.description | default: site.description | strip_html | strip | truncate: 160 | escape }}{% endcapture %}
+{% assign canonical_url_prev = "" %}
+{% assign canonical_url_next = "" %}
+
+
+<title>{{ page_seo_title }}</title>
+<meta name="description" content="{{ page_meta_description }}">
+<link rel="canonical" href="{{ canonical_url }}">
+{% if canonical_url_prev != "" %}<link rel="prev" href="{{ canonical_url_prev | downcase }}">{% endif %}
+{% if canonical_url_next != "" %}<link rel="next" href="{{ canonical_url_next | downcase }}">{% endif %}
+{% if page.path contains "_posts" %}
+  <link rel="amphtml" href="{{ page.id | prepend: '/amp' | absolute_url }}">
+{% endif %}
+
+
+<meta property="og:locale" content="en_US">
+<meta property="fb:app_id" content="836105443109583">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ page_seo_title }}">
+<meta property="og:description" content="{{ page_meta_description }}">
+<meta property="og:site_name" content="PennyMac UX">
+{% if page.og_image %}<meta property="og:image" content="{{ page.og_image | absolute_url }}">{% elsif page.image %}{% if page.path contains "amp" or page.path contains "_post" %}<meta property="og:image" content="{{ page.image | absolute_url }}">{% else %}<meta property="og:image" content="{{ '/assets/images/logos/logo-full-color.png' | absolute_url}}">{% else %}<meta property="og:image" content="{{ page.image | absolute_url }}">{% endif %}{% else %}<meta property="og:image" content="{{ '/assets/images/logos/logo-full-color.png' | absolute_url }}">{% endif %}
+<meta property="og:url" content="{{ canonical_url }}">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@PennyMacNews">
+<meta name="twitter:title" content="{{ page_seo_title }}">
+<meta name="twitter:description" content="{{ page_meta_description }}">
+{% if page.og_twitter_image %}<meta name="twitter:image" content="{{ page.twitter_image | absolute_url }}">{% elsif page.image %}{% if page.path contains "amp" or page.path contains "_post" %}<meta property="twitter:image" content="{{ page.image | absolute_url }}">{% else %}<meta property="twitter:image" content="{{ page.image | absolute_url }}">{% endif %}{% else %}<meta property="twitter:image" content="{{ '/assets/images/logos/logo-full-color.png' | absolute_url }}">{% endif %}
+<meta name="twitter:url" content="{{ canonical_url }}">

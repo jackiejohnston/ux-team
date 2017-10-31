@@ -1,0 +1,37 @@
+{% unless page.slug == "home" %}
+  <div id="breadcrumbs" class="container-fluid hidden-sm-down small pl-0">
+    <div class="container">
+      <nav class="navbar navbar-toggleable-sm navbar-light p-0">
+        {% if page.slug == "404" %}
+          <a class="p-2" href="{{ site.data.routes.home | relative_url }}">
+            Home
+          </a>
+          <span class="active">Page Not Found</span>
+        {% else %}
+          <a class="p-2" href="{{ site.data.routes.home | relative_url }}">
+            Home
+          </a>
+          {% if page.path contains '_posts' or page.path contains "amp"  %}
+            <span class="mx-1">/</span>
+            <a class="p-2" href="{{ site.data.routes.blog | relative_url }}">
+              Learning Center
+            </a>
+          {% endif %}
+          {% for crumb in page.breadcrumb_titles %}
+            <span class="mx-1">/</span>
+            <a class="p-2" href="{{ page.breadcrumb_urls[forloop.index0] | relative_url }}">
+              {{ crumb }}
+            </a>
+          {% endfor %}
+          {% if page.autopages.display_name %}
+            <span class="mx-1">/</span>
+            <span class="active p-2 text-capitalize">{{ page.autopages.display_name | replace: " and ", " & " }} {% if page.breadcrumb_titles contains "FAQs" %}FAQs{% else %}Articles{% endif %}</span>
+          {% else %}
+            <span class="mx-1">/</span>
+            <span class="active p-2">{{ page.breadcrumb_title }}</span>
+          {% endif %}
+        {% endif %}
+      </nav>
+    </div>
+  </div>
+{% endunless%}

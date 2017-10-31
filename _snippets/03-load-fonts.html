@@ -1,0 +1,35 @@
+---
+tag: home
+section: Add Web Fonts
+code-language: markup
+show-code: true
+show-example: false
+description: >
+  For the best page loading performance, load Open Sans from Google Fonts asynchronously by adding the following snippet immediately after your opening <code>head</code> tag. Also, add <code>class="wf-loading"</code> to your opening <code>html</code> tag to avoid a <a href="https://webdesign.tutsplus.com/articles/quick-tip-avoid-fout-by-adding-a-web-font-preloader--webdesign-8287" target="_blank" rel="nofollow">FOUT</a>. Also be sure to add FontAwesome since some of our components rely on them. Note, because Material Icons do not have a fall-back font and we want to avoid a flash of the icon name while they load, we will load those synchronously.
+---
+<!-- Async loading of Google Fonts: -->
+<style>
+  .wf-loading * { opacity: 0; }
+  .wf-active *, .wf-inactive * {
+    -webkit-transition: opacity 1s ease-out;
+    -moz-transition: opacity 1s ease-out;
+    -o-transition: opacity 1s ease-out;
+    transition: opacity 1s ease-out;
+  }
+</style>
+<script id="font-script" type="text/javascript">
+  WebFontConfig = {
+    google: { families: [ "Open+Sans:400:latin" ] }
+  };
+  (function(d) {
+      var wf = d.createElement("script"), s = d.scripts[0];
+      wf.src = "https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js";
+      wf.async = true;
+      s.parentNode.insertBefore(wf, s);
+   })(document);
+</script>
+<!-- end Async loading of Google Fonts -->
+<!-- FontAwesome -->
+<script src="https://use.fontawesome.com/78f985b69a.js"></script>
+<!-- Material Icons (optional) -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">

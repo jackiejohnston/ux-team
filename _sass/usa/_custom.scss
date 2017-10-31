@@ -1,0 +1,568 @@
+// This file is anything necessry for PennyMacUSA that shouldn't be included in Bricks
+
+// BREAKPOINT UP //////////////////////////////////////////////////////////////
+
+// MOBILE FIRST ///////////////////////////////////////////////////////////////
+// Extra small devices (portrait phones, less than 576px)
+// No media query since this is the default in Bootstrap
+// @include media-breakpoint-up(xs) {}
+
+@font-face {
+  font-family: 'gilroybold';
+  src: url('https://pennymac-cms.github.io/pennymacusa-jekyll/assets/fonts/gilroybold/gilroy-bold.woff2') format('woff2'),
+       url('https://pennymac-cms.github.io/pennymacusa-jekyll/assets/fonts/gilroybold/gilroy-bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@import "../bricks/theme-variables";
+
+// Repeated
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  margin-bottom: $headings-margin-bottom;
+  font-family: $headings-font-family;
+  font-weight: $headings-font-weight;
+  line-height: $headings-line-height;
+  color: $headings-color;
+}
+
+h1, .h1 { font-size: $font-size-h1; }
+h2, .h2 { font-size: $font-size-h2; }
+h3, .h3 { font-size: $font-size-h3; }
+h4, .h4 { font-size: $font-size-h4; }
+h5, .h5 { font-size: $font-size-h5; }
+h6, .h6 { font-size: $font-size-h6; }
+// end Repeated
+
+
+html, body {
+  max-width: 100%;
+  //overflow-x: hidden;
+}
+
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.z-index-1 { z-index: 1 !important; }
+
+
+
+.text-overlay {
+  position: relative;
+  padding: 0;
+  border-left: 10px solid rgba($black,.55);
+  // border-top-left-radius: $border-radius;
+  // border-bottom-left-radius: $border-radius;
+}
+.text-overlay-wrap {
+  display: inline;
+  margin: 0;
+  padding: 3px 0 3px 0;
+  background-color: rgba($black,.55);
+  // border-top-right-radius: $border-radius;
+  // border-bottom-right-radius: $border-radius;
+}
+.text-overlay-inner {
+  position: relative;
+  display: inline;
+  left: -5px;
+}
+
+.vertical-align-middle { @include vertical-align(); }
+.bg-white { background-color: $white; }
+.box-shadow { box-shadow: 0 2px 4px 0 rgba($black,.10); }
+.box-shadow-diffuse { box-shadow: 0 2px 30px 0 rgba($black,.10); }
+.border-yellow { border-top: 0; border-left: 3px solid $brand-warning; }
+
+
+.no-box-shadow {
+  box-shadow: none !important;
+}
+
+.table-like .w-33, .table-like .w-80, .table-like .w-40, .table-like .w-50, .table-like .w-20, .table-like .w-30, .table-like .w-70 {
+  margin-top: -1px !important;
+  margin-left: -1px !important;
+}
+
+.table-like .w-80 {
+  width: -webkit-calc(80% - 1px) !important;
+  width:    -moz-calc(80% - 1px) !important;
+  width:         calc(80% - 1px) !important;
+}
+
+.table-like .w-100 {
+  width: -webkit-calc(100% - 1px) !important;
+  width:    -moz-calc(100% - 1px) !important;
+  width:         calc(100% - 1px) !important;
+  margin-left: -1px !important;
+}
+
+
+
+.checked li {
+  padding-left: 28px;
+  text-indent: -28px;
+}
+
+.bg-pennymac-gray-lightest {
+  .card-block.bg-pennymac-gray-lightest {
+    background-color: $white !important;
+  }
+}
+
+// LINKS
+
+a .fa, .pagination a { text-decoration: none; }
+
+
+a span.small.text-muted { color: inherit !important; }
+
+a.card {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+a.card .card-title {
+  text-decoration: underline !important;
+  color: $link-color !important;
+}
+
+a:hover.card .card-title {
+  text-decoration: underline !important;
+  color: darken($link-color, 15%) !important;
+}
+
+a:hover.card .card-img-top {
+  filter: brightness(85%);
+}
+
+// TYPOGRAPHY
+.btn { font-size: .9rem; }
+h1 span, h2 span, h3 span { box-decoration-break: clone; }
+
+hr.text-warning {
+  display: block;
+  width: 50px;
+  border-top: 4px solid $brand-warning;
+}
+
+nav .btn-link[aria-expanded="true"] {
+  text-decoration: none !important;
+  pointer-events: none !important;
+  cursor: default !important;
+  font-weight: 600 !important;
+  color: inherit !important;
+}
+
+.collapsing {
+  -webkit-transition: none;
+  transition: none;
+}
+
+.bg-yellow-dot {
+  background-color: $yellow;
+  height: 64px;
+  width: 64px;
+  border-radius: 32px;
+}
+
+// BORDERS
+.border-1 { border: 1px solid $gray-lighter; }
+.border-top-1 { border-top: 1px solid $gray-lighter; }
+.border-right-1 { border-right: 1px solid $gray-lighter; }
+.border-left-1 { border-left: 1px solid $gray-lighter; }
+.border-bottom-1 { border-bottom: 1px solid $gray-lighter; }
+
+.border-bottom-3-yellow { border-bottom: 3px solid $brand-warning; }
+
+// FOOTER
+footer {
+  .small.flex-column .nav-link {
+    line-height: $line-height-sm * 1.7;
+  }
+  nav .font-weight-bold {
+    font-size: $font-size-sm;
+    position: relative;
+    line-height: 1.45rem;
+    letter-spacing: .04rem;
+  }
+  nav .font-weight-bold:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    width: 50px;
+    border-bottom: 3px solid $brand-warning;
+  }
+  .text-pennymac-blue-light a { color: rgba($pennymac-blue-light, .75) !important; }
+  .text-pennymac-blue-lightest a { color: $pennymac-blue-lightest !important; }
+  a:hover { color: $white !important; }
+  .nav-link:hover {text-decoration: underline}
+}
+
+// HEADER
+.drawer-hamburger { position: relative; }
+.dropdown-toggle[aria-expanded="false"]:not(.btn) {
+  border-bottom: 3px solid transparent !important;
+}
+.dropdown-toggle[aria-expanded="true"]:not(.btn), .underlineable.active.dropdown-toggle[aria-expanded="false"]:not(.btn), .underlineable.active {
+  border-bottom: 3px solid $brand-warning !important;
+}
+
+// MOBILE HEADER
+.collapse[aria-expanded="false"] { display: none; }
+.drawer-nav {
+  a {
+    text-decoration: none;
+    color: $link-color;
+  }
+  a:hover, a:active, a:focus {
+    color: $white !important;
+    background-color: $brand-primary;
+  }
+  .dropdown-item, .nav-item {
+    border-bottom: 1px solid $pennymac-gray-light;
+  }
+  .dropdown-toggle[aria-expanded="false"] {
+    background-color: $white !important;
+    color: $link-color !important;
+  }
+  .dropdown-toggle[aria-expanded="false"]:focus, .dropdown-toggle[aria-expanded="false"]:hover, .dropdown-toggle[aria-expanded="true"] {
+    color: $white !important;
+    background-color: $brand-primary !important;
+  }
+  .dropdown-menu {
+    background-color: $pennymac-gray-lightest;
+    width: 100%;
+    border: 0;
+    a { color: $link-color !important; }
+    a:hover, a:active, a:focus {
+      color: $white !important;
+      background-color: $brand-primary !important;
+    }
+    .dropdown-item:last-child { border-bottom: none; }
+  }
+  .dropdown.show .dropdown-menu {
+    float: none;
+    position: relative;
+  }
+  .dropdown button {
+    color: $gray-light;
+    width: 100%;
+    text-align: left;
+  }
+  .nav-pills .nav-link { border-radius: 0 !important; }
+  .nav-pills * { border-radius: 0 !important; }
+}
+
+// SOCIAL SHARE
+#social-share {
+  a .fa-facebook, a .fa-twitter, a .fa-google-plus, a .fa-envelope {
+    font-size: 24px;
+    line-height: 48px;
+    height: 48px;
+    width: 48px;
+    text-align: center;
+    vertical-align: bottom;
+    display: inline-block;
+    margin: 0;
+    color: white !important;
+  }
+  a .fa-facebook { background-color: $facebook-blue; }
+  a:hover .fa-facebook, a:focus .fa-facebook, a:active .fa-facebook, a:visited .fa-facebook { background-color: darken($facebook-blue, 10%); }
+  a .fa-twitter { background-color: $twitter-blue; }
+  a:hover .fa-twitter, a:focus .fa-twitter, a:active .fa-twitter, a:visited .fa-twitter { background-color: darken($twitter-blue, 10%); }
+  a .fa-google-plus { background-color: $google-plus-blue; }
+  a:hover .fa-google-plus, a:focus .fa-google-plus, a:active .fa-google-plus, a:visited .fa-google-plus { background-color: darken($google-plus-blue, 10%); }
+  a .fa-envelope { background-color: $email-gray; }
+  a:hover .fa-envelope, a:focus .fa-envelope, a:active .fa-envelope, a:visited .fa-envelope { background-color: darken($email-gray, 10%); }
+}
+
+// MAPS
+.map-container iframe{
+  width: 100%;
+  display: block;
+  pointer-events: none;
+  position: relative; /* IE needs a position other than static */
+}
+.map-container iframe.clicked{
+  pointer-events: auto;
+}
+
+// REVIEWS
+.blockquote-footer { color: $black; }
+
+// BLOG page
+#tag-filter-dropdown-menu {
+  height: 212px;
+  overflow-y: scroll;
+}
+.small-card {
+  .card-title { @extend .h6; }
+}
+.big-card {
+  .hidden-xs-up { display: block !important; }
+  .card-title { @extend .h2; }
+}
+
+// ALGOLIA (this is not Bootstrap, but is set automatically by search results)
+.algolia__result-highlight {
+  background-color: $pennymac-yellow-lightest;
+  color: $black;
+}
+
+// IMAGE OVERLAYS
+img::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(to right bottom, rgba($brand-warning,0.3),rgba($brand-primary, 0.3));
+}
+.image-overlay {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(to right, rgba($brand-primary,0.9),rgba($brand-warning, 0.15));
+}
+// TODO: change URLs
+#home-banner-image {
+  height: 587px;
+  background: url(https://pennymac-cms.github.io/pennymacusa-jekyll/assets/images/banners-mobile/home.jpg) no-repeat center right;
+  &:before {
+    @extend .image-overlay;
+  }
+}
+
+.popover {
+  max-width: 600px !important;
+  width:auto;
+  box-shadow: 0 2px 4px 0 rgba($black,.10);
+}
+
+// AFFINITY PRODUCTS
+// TODO: GET RID OF THESE CUSTOM CLASSES, REWRITE MARKUP IN ANGULAR APP
+// .affinity-products-wrapper {
+//   .affinity-products-table-lg { display: table; @extend .mb-3; }
+//   .affinity-products-table-header { display: table-header-group; @extend .h6; }
+//   .affinity-products-table-row { display: table-row; }
+//   .affinity-products-table-header-cell { display: table-cell; @extend .w-25; @extend .p-2; }
+//   .affinity-products-table-body { display: table-row-group; }
+//   .affinity-products-table-cell { display: table-cell; @extend .text-nowrap; @extend .p-2; }
+//   .affinity-disclaimer { @extend .small; }
+//   .affinity-products-table-body .affinity-products-table-cell:first-of-type {
+//     @extend .h6;
+//   }
+// }
+
+
+// Small devices (landscape phones, 576px and up)
+// @include media-breakpoint-up(sm) {}
+@media (min-width: 576px) {
+  .image-overlay-desktop {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(to right, rgba($brand-primary,0.9),rgba($brand-warning, 0.15));
+  }
+  #home-banner-image {
+    height: 775px;
+    background: url(https://pennymac-cms.github.io/pennymacusa-jekyll/assets/images/banners/home.jpg) no-repeat center right;
+    &:before {
+      @extend .image-overlay-desktop;
+    }
+  }
+  .assumptions-dialog {
+    max-width: 700px;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+// @include media-breakpoint-up(md) {
+@media (min-width: 768px) {
+  .border-left-1-md-up { border-left: 1px solid $gray-lighter;}
+
+  .small-card {
+    width: 30%;
+    margin-right: 5%;
+  }
+  .small-card:last-of-type { margin-right: 0 !important; }
+  .flex-column .small-card {
+    width: 100% !important;
+    margin-right: 0 !important;
+  }
+  .flex-column .small-card:first-of-type { margin-bottom: 3rem; }
+
+  #blog-cards .flex-column { width: 30%; }
+  #blog-cards .flex-column:first-of-type { margin-right: 5%; }
+  #blog-cards .flex-column:last-of-type { margin-left: 5%; }
+
+  .big-card {
+    width: 65%;
+  }
+
+  a[href^=tel]:not(.always-show-link) {
+    cursor: text;
+    text-decoration: none;
+    pointer-events: none;
+    color: inherit;
+    white-space: nowrap;
+  }
+
+  // ARROW-BOX
+  .blue-arrow-right-box-md-up {
+    position: relative;
+  }
+  .blue-arrow-right-box-md-up:after {
+    left: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba($brand-primary, 0);
+    border-left-color: $brand-primary;
+    border-width: 30px;
+    margin-top: -30px;
+    z-index: 1;
+  }
+
+  .overlap-md-right { margin-right: -7rem !important; }
+  .overlap-md-left { margin-left: -7rem !important; }
+}
+
+// Large devices (desktops, 992px and up)
+// @include media-breakpoint-up(lg) {}
+@media (min-width: 992px) {}
+
+// Extra large devices (large desktops, 1200px and up)
+// @include media-breakpoint-up(xl) {}
+@media (min-width: 1200px) {}
+
+
+// BREAKPOINT DOWN ////////////////////////////////////////////////////////////
+// Extra small devices (portrait phones, less than 576px)
+// @include media-breakpoint-down(xs) {}
+@media (max-width: 575px) {}
+
+// Small devices (landscape phones, less than 768px)
+// @include media-breakpoint-down(sm) {}
+@media (max-width: 767px) {
+  .border-left-1-md-up { border-left: 0; }
+  // BANNERS
+  .banner-light h1, .banner-light p span { background-color: rgba($white, 0.8); }
+
+  .border-yellow { border-left: 0; }
+  .border-yellow:not(:first-of-type) { border-top: 3px solid $brand-warning; }
+
+  // ARROW-BOX
+  .blue-arrow-down-box-sm-down {
+    position: relative;
+    background: $brand-primary;
+  }
+  .blue-arrow-down-box-sm-down:after {
+    top: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba($brand-primary, 0);
+    border-top-color: $brand-primary;
+    border-width: 30px;
+    margin-left: -30px;
+    z-index: 1;
+  }
+}
+
+// Medium devices (tablets, less than 992px)
+// @include media-breakpoint-down(md) {}
+@media (max-width: 991px) {
+  .table-like .w-33, .table-like .w-80, .table-like .w-40, .table-like .w-50, .table-like .w-20, .table-like .w-30, .table-like .w-70 {
+    width: 100% !important;
+    margin-top: 0 !important;
+    margin-left: 0 !important;
+  }
+}
+
+// Large devices (desktops, less than 1200px)
+// @include media-breakpoint-down(lg) {}
+@media (max-width: 1199px) {}
+
+// Extra large devices (large desktops)
+// No media query since the extra-large breakpoint has no upper bound on its width
+
+
+// BREAKPOINT ONLY ////////////////////////////////////////////////////////////
+// Extra small devices (portrait phones, less than 576px)
+// @include media-breakpoint-only(xs) {}
+@media (max-width: 575px) {}
+
+// Small devices (landscape phones, 576px and up)
+// @include media-breakpoint-only(sm) {}
+@media (min-width: 576px) and (max-width: 767px) {}
+
+// Medium devices (tablets, 768px and up)
+// @include media-breakpoint-only(md) {}
+@media (min-width: 768px) and (max-width: 991px) {}
+
+// Large devices (desktops, less than 1200px)
+  // @include media-breakpoint-down(lg) {
+@media (max-width: 1199px) {
+  a .tile-overlay p span { display: inline; }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+// @include media-breakpoint-only(xl) {}
+@media (min-width: 1200px) {}
+
+
+// BREAKPOINT RANGE ///////////////////////////////////////////////////////////
+// Example
+// Apply styles starting from medium devices and up to extra large devices
+// @include media-breakpoint-between(sm, lg) {
+@media (min-width: 576px) and (max-width: 1199px) {
+  .fixed-top .container { width: 100%; }
+}
+/* Velocify Get started button style */
+.home-val-cta-view{
+  background-color: #F0C300;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0px -2px 4px 0px #D6D7D9;
+    h4 {
+      margin: 0px auto !important;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      text-align: center;
+      }
+    span {
+      padding-bottom: 7px;
+      display: inline-block;
+    }
+    button {
+      border-radius: 100px;
+    }
+}

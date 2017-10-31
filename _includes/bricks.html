@@ -1,0 +1,38 @@
+<main class="container pt-5">
+  <section class="row">
+    <article class="col-md-9 mt-3">
+      <h1>{{ page.h1 }}</h1>
+      {% if page.tag == "home" %}
+        <p><em><strong>Disclaimer:</strong> While you see the <strong>BETA</strong> in the Bricks version name above, just be warned that this version is constantly being updated without having the version and URL to the CSS file changed. For this reason it is highly advised to either use one of the earlier versions of <a href="https://pennymac.github.io/bricks/" target="_blank">Bricks</a> or <a href="https://pennypixels.pennymacusa.com/" target="_blank">PennyPixels</a>, or copy the current CSS to your project instead of linking to it directly. Another really good reason to do it this way is that the hosting currently is not a CDN and will likely be changing locations soon.</em></p>
+      {% endif %}
+      {% for snippet in site.snippets %}
+        {% if snippet.tag == page.tag %}
+          {% include brick.html
+            headline=snippet.headline
+            description=snippet.description
+            show-example=snippet.show-example
+            code-snippet=snippet.content
+            code-language=snippet.code-language
+            show-code=snippet.show-code
+            section=snippet.section
+          %}
+        {% endif %}
+      {% endfor %}
+    </article>
+    <aside id="sidecar-menu" class="pt-5 col-md-2 col-offset-md-1 sidecar-menu hidden-sm-down hidden-print">
+      <ul class="nav list-unstyled flex-column">
+      {% for snippet in site.snippets %}
+        {% if snippet.tag == page.tag and page.tag != "icons" %}
+          {% if snippet.section %}
+            <li>
+              <a href="#{{ snippet.section | slugify }}">
+                {{ snippet.section }}
+              </a>
+            </li>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+      </ul>
+    </aside>
+  </section>
+</main>

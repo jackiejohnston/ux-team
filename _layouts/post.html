@@ -1,0 +1,85 @@
+---
+layout: default
+---
+{% if page.image %}
+  <figure id="banner-image" class="figure m-0 p-0 w-100">
+    <img data-src="{{ page.image | relative_url }}" class="figure-img img-fluid hidden-xs-down m-0 p-0 w-100" alt="{{ page.image_alt_text }}" aria-hidden="true">
+    <img data-src="{{ page.image | replace: '/blog/', '/blog-mobile/' | relative_url }}" class="figure-img img-fluid hidden-sm-up m-0 px-1 w-100" alt="{{ page.image_alt_text }}" aria-hidden="true">
+    <figcaption class="container figure-caption" aria-hidden="true">{{ page.image_caption }}</figcaption>
+  </figure>
+{% endif %}
+{% include breadcrumbs.html %}
+
+<article role="article"  class="container py-5 pt-3">
+  <div class="row d-flex align-items-center">
+    <div class="col-md-7 mb-4">
+      <a href="{{ site.data.routes.blog | relative_url }}">
+        <i class="fa fa-arrow-left mr-2 mb-4" aria-hidden="true"></i>Back to blog list
+      </a>
+      <h1 class="text-pennymac-gray-medium">{{ page.title }}</h1>
+      <p class="text-muted mb-1 small">
+        <span class="text-nowrap mr-3"><i class="fa fa-calendar mr-2" aria-hidden="true"></i>{{ page.date | date: "%m/%d/%Y" }}</span>
+        <i class="fa fa-user-circle-o mr-2" aria-hidden="true"></i>{{ page.author }}
+      </p>
+      <p class="text-muted small">
+        {% for tag in page.tags %}
+          <span class="text-nowrap mr-3">
+            <i class="fa fa-tag mr-2" aria-hidden="true"></i>
+            <a href="{{ tag | replace: ' ', '-' | prepend: '/blog/tag/' | relative_url }}">{{ tag | upcase }}</a>
+          </span>
+        {% endfor %}
+      </p>
+    </div>
+    <div class="col-md-4 offset-md-1 text-primary mb-4">
+      <p class="h4">Why Use PennyMac?</p>
+      <ul class="small">
+        <li>More than 1 million customers</li>
+        <li>Innovative solutions to purchase or refinance</li>
+        <li>Competitive rates and superior service</li>
+      </ul>
+      <a href="{{ site.data.routes.loan-quote-app }}" target="_blank" class="adobe-analytics-external-link btn btn-info rounded-ends px-5">Get A Free Quote</a>
+    </div>
+  </div>
+  <div class="row my-3">
+    <div class="col-md-8 offset-md-2">
+      {{ content }}
+    </div>
+  </div>
+</article>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2 p-0">
+      <div id="social-share" class="d-flex justify-content-end align-items-center">
+        <span class="mr-3 small text-muted">Share this:</span>
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | remove:'/index.html' | absolute_url | url_encode }}" title="Share on Facebook"><i class="fa fa-facebook" aria-hidden="true"></i><span class="sr-only">Share on Facebook</span></a><a href="https://twitter.com/intent/tweet?url={{ page.url | remove:'/index.html' | absolute_url | url_encode }}&text={{ page.title | url_encode }}{{ ': ' | url_encode }}{{ page.description | strip_html | url_encode }}&hashtags={{ page.tags | array_to_sentence_string | remove: 'and' | url_encode }}" title="Tweet"><i class="fa fa-twitter" aria-hidden="true"></i><span class="sr-only">Tweet</span></a><a href="https://plus.google.com/share?url={{ page.url | remove:'/index.html' | absolute_url | url_encode }}" title="Share on Google+"><i class="fa fa-google-plus" aria-hidden="true"></i><span class="sr-only">Share on Google+</span></a><a href="mailto:?Subject=PennyMac:%20{{ page.title }}&Body=I%20saw%20this%20and%20thought%20of%20you!%20{{ page.url | remove:'/index.html' | absolute_url | url_encode }}" title="Email post"><i class="fa fa-envelope" aria-hidden="true"></i><span class="sr-only">Email post</span></a>
+      </div>
+    </div>
+  </div>
+  <nav class="row mb-5 mt-0" aria-label="Pages" role="navigation">
+    <div class="col-md-4 offset-md-2 p-0">
+      {% if page.next.url %}
+        <div class="border-top-1">
+          <p class="text-muted small">Previous Post</p>
+          <div class="p-4 h4">
+            <a href="{{ page.next.url | relative_url }}">
+              {{ page.next.title }}
+            </a>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+    <div class="col-md-4 p-0 border-left-1-md-up">
+      {% if page.previous.url %}
+        <div class="border-top-1">
+          <p class="text-muted small text-right">Next Post</p>
+          <div class="p-4 h4 text-right">
+            <a href="{{ page.previous.url | relative_url }}">
+              {{ page.previous.title }}
+            </a>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </nav>
+</div>

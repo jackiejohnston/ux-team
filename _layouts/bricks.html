@@ -1,0 +1,36 @@
+---
+layout: compress
+---
+<!DOCTYPE html>
+<html lang="en" class="wf-loading">
+  <head>
+    {% if jekyll.environment == "production" %}
+      {% include anti-click-jack.html %}
+    {% endif %}
+    {% include head.html %}
+    <script src="https://use.fontawesome.com/78f985b69a.js"></script>
+    <link rel="stylesheet" href="{{ '/assets/stylesheets/bricks-docs.min.css' | relative_url }}">
+    <meta name="robots" content="noindex, nofollow">
+  </head>
+  <body class="drawer drawer--left">
+    <header id="header" role="navigation">
+      {% include header-bricks.html %}
+    </header>
+    <main role="main" id="main" tabindex="-1">
+
+      <div id="content">{{content}}</div>
+
+    </main>
+
+    <script src="{{ site.data.routes.jquery }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="{{ '/assets/javascripts/prism.min.js' | relative_url }}"></script>
+    <script src="{{ '/assets/javascripts/clipboard.js' | relative_url }}"></script>
+    <script src="{{ '/assets/javascripts/anchor.min.js' | relative_url }}"></script>
+    {% for script in page.scripts %}
+      <script src="{{ script | prepend: '/assets/javascripts/' | relative_url }}"></script>
+    {% endfor %}
+    <script src="{{ '/assets/javascripts/bricks-docs.js' | relative_url }}"></script>
+  </body>
+</html>

@@ -1,0 +1,366 @@
+// NOTE: Let's make a Bootstrap theme! That way anyone who works on the project only needs to know Bootstrap classes. We'd like to keep away from introducing new classes and id-specific changes whenever we can and stick to just adjusting the Bootstrap classes. First, check to see if you can change what you need in the _theme-variables.scss file without adding to this page. Also, please use REM instead of pixels for units -- especially for text to keep in accessibility compliance -- and use Bootstrap variables instead of your own colors and sizes as much as possible.
+
+// NOTE: Use spacing classes as much as possible to avoid adding margin and padding here: https://v4-alpha.getbootstrap.com/utilities/spacing/
+
+// NOTE: Also, let's DRY up our media queries and try to keep just one media query container for each breakpoint needed.
+
+// https://v4-alpha.getbootstrap.com/layout/overview/#responsive-breakpoints
+
+// BREAKPOINT UP //////////////////////////////////////////////////////////////
+
+// MOBILE FIRST ///////////////////////////////////////////////////////////////
+// Extra small devices (portrait phones, less than 576px)
+// No media query since this is the default in Bootstrap
+// @include media-breakpoint-up(xs) {}
+
+// TYPOGRAPHY
+.bg-pennymac-cyan {
+  h1, h2, h3, h4, h5, h6,
+  .h1, .h2, .h3, .h4, .h5, .h6 { color: $gray-dark !important; }
+}
+
+.text-white {
+  h1, h2, h3, h4, h5, h6,
+  .h1, .h2, .h3, .h4, .h5, .h6 { color: $white !important; }
+}
+
+// LINKS
+a .h4, a .h5 { color: $link-color !important; }
+
+.text-white {
+  a:not(.btn) { color: $white; }
+  a:hover, a:focus { color: darken($white, 15%);  }
+}
+
+.bg-faded { background-color: $gray-lightest !important; }
+
+header nav a, a.dropdown-item { text-decoration: none !important; }
+
+// BUTTONS
+button { font-family: $font-family-sans-serif; }
+.btn-link {
+  text-decoration: underline !important;
+  cursor: pointer;
+}
+a.btn { text-decoration: none !important; }
+
+a.btn-primary:focus, a.btn-success:focus, a.btn-danger:focus {
+  color: white !important;
+}
+
+.btn.small, button .small { font-size: .8rem !important; }
+
+.btn-outline-warning {
+  color: $pennymac-yellow-dark;
+  border-color: $pennymac-yellow-dark;
+}
+.btn-outline-warning:hover, .btn-outline-warning:active {
+  color: $white;
+  border-color: $pennymac-yellow;
+}
+
+.btn-outline-info {
+  color: $brand-info;
+  border-color: $brand-info;
+}
+.btn-outline-info:hover, .btn-outline-info:active, .show>.btn-outline-info.dropdown-toggle {
+  color: $black;
+  border-color: $brand-info;
+}
+// Custom button classes:
+.rounded-ends { border-radius: 100px; }
+textarea.rounded-ends { border-radius: 1rem !important; }
+
+// Focus
+:focus, .form-control:focus, .btn:focus {
+  transition: box-shadow 1s;
+  outline: 0 !important;
+  box-shadow: 0px 0px 0px 5px rgba($pennymac-cyan, .5);
+}
+[tabindex="-1"]:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+.bg-pennymac-cyan :focus, .bg-pennymac-cyan .form-control:focus, .bg-pennymac-cyan .btn:focus {
+  box-shadow: 0px 0px 0px 5px rgba($pennymac-cyan-light, 1) !important;
+}
+.btn-info:focus {
+  box-shadow: 0px 0px 0px 5px rgba($pennymac-cyan-dark, .5);
+}
+
+// States
+.form-control:focus {
+  border-color: $brand-primary !important;
+}
+
+.has-warning .form-control:focus {
+  box-shadow: none !important;
+  border-color: $brand-warning !important;
+}
+.has-success .form-control:focus {
+  box-shadow: none !important;
+  border-color: $brand-success !important;
+}
+.has-danger .form-control:focus {
+  box-shadow: none !important;
+  border-color: $brand-danger !important;
+}
+
+// Nav-Tabs
+.nav-tabs {
+  .nav-link {
+    background-color: $gray-lightest;
+    border-color: $gray-lighter;
+    text-decoration: none !important;
+  }
+  .nav-link.active,
+  .nav-item.show .nav-link {
+    background-color: $body-bg;
+  }
+}
+
+
+// Forms
+
+.bg-pennymac-cyan {
+  .has-danger .form-control-feedback, .has-danger .form-control-label, .has-danger .col-form-label, .has-danger .form-check-label, .has-danger .custom-control, .fv-form-bootstrap4 .has-danger label, .fv-form-bootstrap4 .has-danger .fv-control-feedback { color: $white !important; }
+  .has-success .form-control-feedback, .has-success .form-control-label, .has-success .col-form-label, .has-success .form-check-label, .has-success .custom-control, .fv-form-bootstrap4 .has-success label, .fv-form-bootstrap4 .has-success .fv-control-feedback { color: inherit !important; }
+  .has-danger .form-control, .has-success .form-control {
+    border-color: inherit !important;
+  }
+}
+
+::-webkit-input-placeholder { color: $pennymac-gray-dark !important; }
+:-moz-placeholder { color: $pennymac-gray-dark !important; opacity: 1; }
+::-moz-placeholder { color: $pennymac-gray-dark !important; opacity: 1; }
+:-ms-input-placeholder { color: $pennymac-gray-dark !important; }
+::-ms-input-placeholder { color: $pennymac-gray-dark !important; }
+.form-control-feedback { margin-left: .5rem !important; }
+.fv-control-feedback { margin-right: -2rem; }
+.fv-form-bootstrap4 .has-success label, .fv-form-bootstrap4 .has-success .fv-control-feedback { color: $brand-success !important; }
+.fv-form-bootstrap4 .has-danger label, .fv-form-bootstrap4 .has-danger .fv-control-feedback { color: $brand-danger !important; }
+.fv-form-bootstrap4 .has-warning label, .fv-form-bootstrap4 .has-warning .fv-control-feedback { color: $brand-warning !important; }
+
+input[type=color] { height: 38px; }
+input[type=color].form-control-lg { height: 51px; }
+input[type=color].form-control-sm { height: 27px; }
+
+// Checkboxes
+input[type=checkbox] {
+  -webkit-appearance: none;
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid $pennymac-gray-medium;
+  border-radius: 3px;
+  vertical-align: -12%;
+  margin-right: 8px;
+  background-color: $white;
+}
+input[type=checkbox]:checked {
+  border-color: $brand-primary;
+  background-color: $brand-primary;
+}
+input[type=checkbox]:checked:after {
+  font-family: FontAwesome;
+  content: "\f00c";
+  color: $white;
+  position: absolute;
+  top: 0.03rem;
+  left: 0.15rem;
+}
+input[type=checkbox][disabled] {
+  border-color: $pennymac-gray-medium-light !important;
+}
+input[type=checkbox][disabled]:checked {
+  background-color: $pennymac-gray-medium-light;
+}
+input[type=checkbox][disabled]:checked:after {
+  color: $white !important;
+}
+
+// Radios
+input[type=radio] {
+  -webkit-appearance: none;
+  position: relative !important;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid $pennymac-gray-medium;
+  border-radius: 50%;
+  vertical-align: -12%;
+  margin-right: 8px;
+  outline: none;
+  background-color: $white;
+}
+input[type=radio]:checked {
+  border-color: $brand-primary;
+  background-color: $brand-primary;
+}
+input[type=radio]:checked:after {
+  content: " ";
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  top: 1px;
+  left: 1px;
+  border: 2px solid $white;
+  border-radius: 50%;
+}
+input[type=radio]:focus:before {
+  top: 0;
+  left: -4px;
+  content: " ";
+  position: absolute;
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+}
+input[type=radio][disabled] {
+  border-color: $pennymac-gray-medium-light !important;
+}
+input[type=radio][disabled]:checked {
+  border-color: $pennymac-gray-medium-light !important;
+  background-color: $pennymac-gray-medium-light !important;
+}
+
+// Bootstrap-Datepicker
+.bootstrap-datetimepicker-widget table td.today:before {
+  border-bottom-color: $brand-primary;
+}
+.bootstrap-datetimepicker-widget table td.active, .bootstrap-datetimepicker-widget table td.active:hover {
+  background-color: $brand-primary;
+}
+.bootstrap-datetimepicker-widget table td span.active {
+  background-color: $brand-primary;
+}
+
+// For H1 hero displays
+.box {
+  position: relative;
+  padding: 10px 0;
+  border-left: 50px solid $brand-warning;
+  border-top-left-radius: $border-radius;
+  border-bottom-left-radius: $border-radius;
+}
+.text-right.box {
+  border-left: 0 !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-top-right-radius: $border-radius;
+  border-bottom-right-radius: $border-radius;
+  border-right: 50px solid $brand-warning;
+}
+.box-wrap {
+  display: inline;
+  margin: 0;
+  background-color: $brand-warning;
+  border-top-right-radius: $border-radius;
+  border-bottom-right-radius: $border-radius;
+}
+h1.box.display-4 .box-wrap { padding: 9px 0 10px 0; }
+h2.h1.display-4 .box-wrap { padding: 10px 0; }
+.text-right.box .box-wrap {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  border-top-left-radius: $border-radius;
+  border-bottom-left-radius: $border-radius;
+}
+.box-inner {
+  position: relative;
+  display: inline;
+  left: -25px;
+}
+.text-right.box .box-inner {
+  left: 25px !important;
+}
+
+.box-arrow::after {
+  content: "";
+  position: absolute;
+  bottom: -30px;
+  left: 50px;
+  border-width: 30px 0 0 30px;
+  border-style: solid;
+  border-color: $brand-warning transparent;
+  display: block;
+  width: 0;
+}
+
+
+// Small devices (landscape phones, 576px and up)
+// @media (min-width: 576px) { ... }
+@include media-breakpoint-up(sm) {
+}
+
+// Medium devices (tablets, 768px and up)
+// @media (min-width: 768px) { ... }
+@include media-breakpoint-up(md) {}
+
+// Large devices (desktops, 992px and up)
+// @media (min-width: 992px) { ... }
+@include media-breakpoint-up(lg) {}
+
+// Extra large devices (large desktops, 1200px and up)
+// @media (min-width: 1200px) { ... }
+@include media-breakpoint-up(xl) {}
+
+
+// BREAKPOINT DOWN ////////////////////////////////////////////////////////////
+// Extra small devices (portrait phones, less than 576px)
+// @media (max-width: 575px) { ... }
+@include media-breakpoint-down(xs) {
+  .display-4 { font-size: 2rem; }
+  h1.box.display-4 .box-wrap { padding: 10px 0; }
+}
+
+// Small devices (landscape phones, less than 768px)
+// @media (max-width: 767px) { ... }
+@include media-breakpoint-down(sm) {}
+
+// Medium devices (tablets, less than 992px)
+// @media (max-width: 991px) { ... }
+@include media-breakpoint-down(md) {}
+
+// Large devices (desktops, less than 1200px)
+// @media (max-width: 1199px) { ... }
+@include media-breakpoint-down(lg) {}
+
+// Extra large devices (large desktops)
+// No media query since the extra-large breakpoint has no upper bound on its width
+
+
+// BREAKPOINT ONLY ////////////////////////////////////////////////////////////
+// Extra small devices (portrait phones, less than 576px)
+// @media (max-width: 575px) { ... }
+@include media-breakpoint-only(xs) {}
+
+// Small devices (landscape phones, 576px and up)
+// @media (min-width: 576px) and (max-width: 767px) { ... }
+@include media-breakpoint-only(sm) {}
+
+// Medium devices (tablets, 768px and up)
+// @media (min-width: 768px) and (max-width: 991px) { ... }
+@include media-breakpoint-only(md) {}
+
+// Large devices (desktops, 992px and up)
+// @media (min-width: 992px) and (max-width: 1199px) { ... }
+@include media-breakpoint-only(lg) {}
+
+// Extra large devices (large desktops, 1200px and up)
+// @media (min-width: 1200px) { ... }
+@include media-breakpoint-only(xl) {}
+
+
+// BREAKPOINT RANGE ///////////////////////////////////////////////////////////
+// Example
+// Apply styles starting from medium devices and up to extra large devices
+// @media (min-width: 768px) and (max-width: 1199px) { ... }
+@include media-breakpoint-between(sm, lg) {}
+
+// Apply styles starting from small devices and up to medium devices
+// @media (min-width: 576px) and (max-width: 991px) {
+@include media-breakpoint-between(sm, md) {
+  .card-columns { column-count: 2 !important; }
+}

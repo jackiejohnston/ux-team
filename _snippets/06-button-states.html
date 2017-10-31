@@ -1,0 +1,12 @@
+---
+tag: components
+headline: States
+code-language: markup
+show-example: true
+show-code: true
+description: >
+  Buttons will automatically display slightly differently when they are active, but you can still force the same active appearance with <code>.active</code> (and include the <code>aria-pressed="true"</code> attribute) should you need to replicate the state programmatically. You can also show buttons to be disabled. Note the differences below for the markup of disabled buttons and disabled links.
+---
+<a href="#" class="btn btn-primary rounded-ends active" role="button" aria-pressed="true">Active link</a>
+<button type="button" class="btn btn-primary rounded-ends" disabled>Disabled button</button>
+<a href="#" class="btn btn-primary rounded-ends disabled" role="button" aria-disabled="true">Disabled link</a>

@@ -1,0 +1,22 @@
+---
+tag: components
+section: Hero display
+code-language: markup
+show-example: true
+show-code: true
+description: >
+  Hero image with PennyMac blue on yellow display header.
+---
+<div class="container-fluid">
+  <figure id="banner-image" class="m-0 p-0">
+    <img src="{{ '/assets/images/banners/blog.jpg' | relative_url }}" class="figure-img img-fluid hidden-xs-down m-0 p-0" alt="PennyMac is the lender you can call home.">
+    <img src="{{ '/assets/images/banners-mobile/blog.jpg' | relative_url }}" class="figure-img img-fluid hidden-sm-up m-0 px-1" alt="PennyMac is the lender you can call home.">
+  </figure>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-9 offset-md-1">
+      <h1 class="box mt--8 display-4 text-primary"><span class="box-wrap"><span class="box-inner">Mortgage news, tips and tools</span></span></h1>
+    </div>
+  </div>
+</div>
