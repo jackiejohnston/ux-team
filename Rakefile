@@ -61,7 +61,7 @@ task :proof do
     report_missing_names: true,
     check_img_http: true,
     empty_alt_ignore: true,
-    url_ignore: ["/about-us", "/contact-us", "/careers", "/purchasing", "/purchasing/purchasing-products", "/purchasing/purchasing-products#ARM", "/multifamily-loans", "/purchasing/purchasing-loan-calculators", "/refinancing", "/refinancing/refinancing-products", "/refinancing/how-refinancing-works", "/refinancing/refinancing-calculators", "/relief-and-assistance/options-to-stay-in-your-home", "/relief-and-assistance/foreclosure-alternatives", "/property-damage-disaster-assistance", "/relief-and-assistance", "/rates", "/my-account", "/my-account/accessing-your-account-information", "/my-account/new-borrower-information", "/my-account/making-payments", "/my-account/tax-and-insurance", "/pennymac-reviews", "/affinity", "/state-licenses", "/forms", "/legal", "/privacy", "/refinancing-products/cash-out-refinance", "/conventional-home-loans", "/va-home-loans", "/refinancing-products/usda-streamlined-assist-refinance"],
+    url_ignore: [],
   }
   HTMLProofer.check_directory("./_site", options).run
 end
