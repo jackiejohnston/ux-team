@@ -49,7 +49,7 @@
                   <li>
                     <strong>
                       <span class="text-danger">{{ message.heading }} </span>
-                      {{ message.issue }}
+                      <a href="{{ message.issue | w3_link }}" target="_blank" rel="nofollow">{{ message.issue }}<i class="fa fa-external-link ml-2" aria-hidden="true"></i></a>
                     </strong><br>
 
                     <span class="text-muted">{{ message.description }}</span><br>
