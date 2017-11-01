@@ -34,14 +34,8 @@ $(document).ready(function() {
 
   // Toggle plus/minus sign on report table
 
-  $("a .fa-plus-circle").click(function(){
-    $(this).toggleClass("fa-plus-circle");
-    $(this).toggleClass("fa-minus-circle");
-  });
-
-  $("a .fa-minus-circle").click(function(){
-    $(this).toggleClass("fa-plus-circle");
-    $(this).toggleClass("fa-minus-circle");
+  $("[data-toggle='collapse']").click(function(){
+    $(this).children(":first").toggleClass("fa-plus-circle").toggleClass("fa-minus-circle");
   });
 
 });
